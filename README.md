@@ -1,6 +1,6 @@
 # TsoHa-Forum
 
-A generic web forum which will possibly be later modified to have a theme of some sort, or kept as a "quick-setup" template for creating similar projects.
+A generic web forum which will possibly be later modified to have a theme of some sort.
 
 ## Short description
 
