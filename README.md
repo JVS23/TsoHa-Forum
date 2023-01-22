@@ -1,6 +1,6 @@
 # TsoHa-Forum
 
-# Short description
+## Short description
 
 My project will be a web forum hosted on fly.io created using Python and Flask. Database operations will be handled using PostGreSQL.
 The forum will have the option to create new users and log onto them, with different usage access for admin and normal users. 
