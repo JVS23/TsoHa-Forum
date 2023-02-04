@@ -4,7 +4,7 @@ A generic web forum which will possibly be later modified to have a theme of som
 
 ## Installation guide
 
-Currently working only locally, install with poetry using "poetry install", and running it with the command "poetry run flask run" with a psql server running. Remember to input your own server (and a secret key!) in a .env file to connect your own database.
+Currently working only locally, install with poetry using "poetry install", and running it with the command "poetry run flask run" with a psql server running inside the "app" directory. Remember to input your own server (and a secret key!) in a .env file to connect your own database. Do also remember to create the tables from the schema.sql file.
 
 
 
