@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "tsoha-forum"
+version = "0.1.0"
+description = ""
+authors = ["JVS23 <juhosiren23@gmail.com>"]
+readme = "README.md"
+packages = [{include = "tsoha_forum"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+Flask = "^2.2.2"
+Flask-SQLAlchemy = "^3.0.3"
+psycopg2 = "^2.9.5"
+sqlalchemy = "^2.0.1"
+python-dotenv = "^0.21.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
