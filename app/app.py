@@ -27,11 +27,6 @@ def login():
     username = request.form["username"]
     password = request.form["password"]
 
-    hash_value = generate_password_hash(password)
-    sql = text("INSERT INTO users (username, password) VALUES (:username, :password)")
-    db.session.execute(sql, {"username":username, "password":hash_value})
-    db.session.commit()
-
     sql = text("SELECT password FROM users WHERE username=:username")
     result = db.session.execute(sql, {"username":username})
     user = result.fetchone()
@@ -44,6 +39,20 @@ def login():
     session["username"] = username
     return redirect("/")
 
+@app.route("/create",methods=["POST"])
+def create():
+    username = request.form["username"]
+    password = request.form["password"]
+
+    hash_value = generate_password_hash(password)
+    sql = text("INSERT INTO users (username, password) VALUES (:username, :password)")
+    db.session.execute(sql, {"username":username, "password":hash_value})
+    db.session.commit()
+
+    
+    print("User created")
+    return redirect("/")
+
 
 @app.route("/logout")
 def logout():
@@ -52,7 +61,7 @@ def logout():
 
 @app.route("/error")
 def error():
-    return render_template("/error.html")
+    return render_template("error.html")
 
 
 @app.route("/new")
