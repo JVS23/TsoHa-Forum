@@ -5,10 +5,28 @@
 {% block content %}
 
 
+
+
 <p>Welcome to the forum!</p>
 <br>
 <p>Here you can discuss anything you want with other users. Please be respectful and follow the rules, once they are written.</p>
 <br>
+
+<a href="/new">Create a new thread</a>
+<br>
+<br>
+
+{% for thread in threads %}
+    <div class="box">
+        <h3><a href="/thread/{{ thread.id }}">{{ thread.title }}</a></h3>
+        <p>{{ thread.content }}</p>
+        <p>Created by {{ thread.user_id }} on {{ thread.created_at }}</p>
+        <br>
+        <p> #{{thread.id}} | Likes: {{thread.likes}} </p>
+    </div>
+    
+{% endfor %}
+
 {% endblock %}
 
 

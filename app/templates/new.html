@@ -1,0 +1,19 @@
+{% extends "layout_nosession.html" %}
+
+{% block title %}Error{% endblock %}
+
+{% block content %}
+
+<form action="/send" method="post">
+    Title: <br>
+    <textarea name="title" rows="1" cols="20"></textarea>
+    <br>
+    Content: <br>
+    <textarea name="content" rows="3" cols="40"></textarea>
+    <input type="submit" value="Submit">
+</form>
+
+
+<a href="/">Back to homepage</a>
+
+{% endblock %}
