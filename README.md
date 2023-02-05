@@ -14,7 +14,7 @@ To do:
 
 - Threads (and respective SQL table changes)
 - Replying to threads
-- Visuals
+- Improve visuals (possibly back to css, more personalization)
 - Categories(?)
 - Code structure cleanup to modules
 - Testing
