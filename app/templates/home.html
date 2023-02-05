@@ -20,9 +20,9 @@
     <div class="box">
         <h3><a href="/thread/{{ thread.id }}">{{ thread.title }}</a></h3>
         <p>{{ thread.content }}</p>
-        <p>Created by {{ thread.username }} on {{ thread.created_at }}</p>
+        <p>Created by <b>{{ thread.username }} </b> on {{ thread.created_at }}</p>
         <br>
-        <p> #{{thread.id}} | Likes: {{thread.likes}} </p>
+        <p> #{{thread.id}} | Likes: {{thread.likes}} | Replies: 0 </p>
     </div>
     
 {% endfor %}

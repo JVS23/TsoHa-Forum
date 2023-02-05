@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}View thread{% endblock %}
+
+{% block content %}
+
+<div class="box">
+    <h3>{{ thread_info.title }}</a></h3>
+    <p>{{ thread_info.content }}</p>
+    <br>
+    <br>
+    <p>Created by <b>{{ thread_info.user_id }} </b> on {{ thread_info.created_at }}</p>
+
+    <p> #{{thread_info.id}} | Likes: {{thread_info.likes}} | Replies: 0 </p>
+</div>
+
+<p> </p>
+<br>
+<h3>Replies</h3>
+
+
+<div class="replybox">
+    <p>Placeholder reply to the above thread</p>
+</div>
+<div class="replybox">
+    <p>Placeholder reply to the above thread</p>
+</div>
+<div class="replybox">
+    <p>Placeholder reply to the above thread</p>
+</div>
+<p>Created by <b>{{ thread_info.user_id }} </b> on {{ thread_info.created_at }}</p>
+
+
+
+<a href="/">Back to homepage</a>
+
+{% endblock %}

@@ -13,7 +13,6 @@ db = SQLAlchemy(app)
 
 @app.route("/")
 def index():
-
     return render_template("index.html") 
 
 
@@ -23,10 +22,12 @@ def home():
     threads = result.fetchall()
     return render_template("home.html", threads=threads)
 
-
-@app.route("/new")
-def new():
-    return render_template("new.html")
+@app.route("/thread/<int:id>")
+def thread(id):
+    sql = text("SELECT * FROM threads WHERE id=:id")
+    result = db.session.execute(sql, {"id":id})
+    thread_info = result.fetchone()
+    return render_template("thread.html", thread_info=thread_info)
 
 
 @app.route("/send", methods=["POST"])
@@ -82,6 +83,11 @@ def create():
 
     flash('Your account was successfully created! You can now log in.')
     return redirect("/")
+
+
+@app.route("/new")
+def new():
+    return render_template("new.html")
 
 
 @app.route("/error")
