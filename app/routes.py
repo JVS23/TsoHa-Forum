@@ -19,7 +19,7 @@ def index():
 
 @app.route("/home")
 def home():
-    result = db.session.execute(text("SELECT id, title, content, likes, created_at, user_id FROM threads"))
+    result = db.session.execute(text("SELECT threads.id, title, content, likes, created_at, user_id, username FROM threads LEFT JOIN users ON threads.user_id = users.id ORDER BY threads.id DESC"))
     threads = result.fetchall()
     return render_template("home.html", threads=threads)
 
