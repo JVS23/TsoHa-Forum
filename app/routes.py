@@ -13,7 +13,11 @@ db = SQLAlchemy(app)
 
 @app.route("/")
 def index():
-    return render_template("index.html") 
+    try:
+        session["username"]
+        return redirect("/home")
+    except:
+        return render_template("index.html") 
 
 
 @app.route("/home")

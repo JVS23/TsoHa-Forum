@@ -8,12 +8,12 @@ Currently working only locally, install with poetry using "poetry install", and 
 
 ## Current state
 
-The forum is currently in an early stage, with features like account creation and management working. The forum itself is WIP, and will be added soon.
+The forum is currently still a work in progress, with features like creating and viewing threads and using personal accounts working. The forum is only available locally at the moment due to the security flaws being still in place. Most of the main features are working expect the replying, which should be a quick fix when I get back to continue working on the project.
 
 To do:
 
 - Come up with 2 more tables for the database to fill the criteria
-- Threads (and respective SQL table changes)
+- Add poetry tasks to improve installation & usage
 - Replying to threads
 - Improve visuals (possibly back to css, more personalization)
 - Categories(?)
