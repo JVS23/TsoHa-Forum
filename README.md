@@ -12,6 +12,7 @@ The forum is currently in an early stage, with features like account creation an
 
 To do:
 
+- Come up with 2 more tables for the database to fill the criteria
 - Threads (and respective SQL table changes)
 - Replying to threads
 - Improve visuals (possibly back to css, more personalization)
@@ -19,10 +20,9 @@ To do:
 - Code structure cleanup to modules
 - Testing
 - Security (fix vulnerabilities, add CSRF protection, etc.)
-
+- Edge cases (name & password parameters, etc.)
+- Admin account creation
 
 ## Documentation
-
-
 
 Created as a submission for the course **Aineopintojen harjoitustyö: Tietokantasovellus (periodi III, 2022-2023), Helsingin Yliopisto**
