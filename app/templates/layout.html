@@ -1,0 +1,19 @@
+<!doctype html>
+{% if session.username %}
+<p>Logged in as {{ session.username }}</p>
+<a href="/logout">Log out</a>
+
+<title>JVS - Forum - {% block title %}{% endblock %}</title>
+<h1>JVS - Forum</h1>
+<a href="/home">Home</a>
+<hr>
+{% block content %}{% endblock %}
+<hr>
+
+
+{% else %}
+
+<p> Your session seems to be expired, please click below to log in. </p>
+<a href="/">Log in</a>
+
+{% endif %}

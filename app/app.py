@@ -37,17 +37,19 @@ def login():
     
 
     session["username"] = username
-    return redirect("/")
+    return redirect("/home")
 
 @app.route("/create",methods=["POST"])
 def create():
     username = request.form["username"]
     password = request.form["password"]
-
     hash_value = generate_password_hash(password)
-    sql = text("INSERT INTO users (username, password) VALUES (:username, :password)")
-    db.session.execute(sql, {"username":username, "password":hash_value})
-    db.session.commit()
+    try:
+        sql = text("INSERT INTO users (username, password) VALUES (:username, :password)")
+        db.session.execute(sql, {"username":username, "password":hash_value})
+        db.session.commit()
+    except:
+        return render_template("error.html", message="Username already taken")
 
     
     print("User created")
