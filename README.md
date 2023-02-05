@@ -16,7 +16,9 @@ To do:
 - Replying to threads
 - Visuals
 - Categories(?)
-
+- Code structure cleanup to modules
+- Testing
+- Security (fix vulnerabilities, add CSRF protection, etc.)
 
 
 ## Documentation

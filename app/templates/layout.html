@@ -1,4 +1,8 @@
 <!doctype html>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<body>
 {% if session.username %}
 <p>Logged in as {{ session.username }}</p>
 <a href="/logout">Log out</a>
@@ -17,3 +21,5 @@
 <a href="/">Log in</a>
 
 {% endif %}
+
+</body>
