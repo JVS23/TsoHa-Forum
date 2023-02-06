@@ -8,7 +8,7 @@
 
 
 <p>Welcome to the forum!</p>
-<p>Here you can discuss anything you want with other users. Please be respectful and follow the rules, once they are written.</p>
+<p>Here you can share ASCII art (preferably cats) with other users. Please be respectful and follow the rules, once they are written.</p>
 
 <br>
 
@@ -23,8 +23,29 @@
         <p>Created by <b>{{ thread.username }} </b> on {{ thread.created_at }}</p>
         <p> #{{thread.id}} | Likes: {{thread.likes}} | Replies: 0 </p>
     </div>
+
+
     
 {% endfor %}
+
+<div class="box">
+    <h3>Tester cat</h3>
+    <p>
+          ,-.       _,---._ __  / \
+        /  )    .-'       `./ /   \
+       (  (   ,'            `/    /|
+        \  `-"             \'\   / |
+         `.              ,  \ \ /  |
+          /`.          ,'-`----Y   |
+         (            ;        |   '
+         |  ,-.    ,-'         |  /
+         |  | (   |        hjw | /
+         )  |  \  `.___________|/
+         `--'   `--'</p>
+    <br>
+    <p>Created by <b> kiisu </b> on 2023-02-06 10:36:00</p>
+    <p> #0 | Likes: 100 | Replies: 0 </p>
+</div>
 
 {% endblock %}
 

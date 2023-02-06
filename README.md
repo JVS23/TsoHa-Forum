@@ -1,6 +1,6 @@
 # TsoHa-Forum
 
-A generic web forum which will possibly be later modified to have a theme of some sort.
+A web forum for sharing, rating and discussing ASCII art with others. The forum is created as a project for the course **Aineopintojen harjoitustyö: Tietokantasovellus (periodi III, 2022-2023), Helsingin Yliopisto**. The forum is created using Python, Flask, HTML, CSS and PostgreSQL. The forum is currently only available locally, but will be available online in the future.
 
 ## Installation guide
 
@@ -31,8 +31,3 @@ To do:
 - Security (fix vulnerabilities, add CSRF protection, etc.)
 - Edge cases (name & password parameters, etc.)
 - Admin account creation
-
-
-## Documentation
-
-Created as a submission for the course **Aineopintojen harjoitustyö: Tietokantasovellus (periodi III, 2022-2023), Helsingin Yliopisto**
