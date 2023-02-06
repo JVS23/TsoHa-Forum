@@ -26,6 +26,7 @@ def home():
     threads = result.fetchall()
     return render_template("home.html", threads=threads)
 
+
 @app.route("/thread/<int:id>")
 def thread(id):
     sql = text("SELECT * FROM threads WHERE id=:id")

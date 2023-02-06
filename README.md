@@ -13,6 +13,8 @@ DATABASE_URL="yourinfohere"
 
 SECRET_KEY=any random string
 
+You might have to install psycopg2-binary if the installation of psycopg2 fails due to your system, just run "poetry add psycopg2-binary" and try again.
+
 ## Current state
 
 The forum is currently still a work in progress, with features like creating and viewing threads and using personal accounts working. The forum is only available locally at the moment due to the security flaws being still in place. Most of the main features are working expect the replying, which should be a quick fix when I get back to continue working on the project.
@@ -29,6 +31,7 @@ To do:
 - Security (fix vulnerabilities, add CSRF protection, etc.)
 - Edge cases (name & password parameters, etc.)
 - Admin account creation
+
 
 ## Documentation
 
