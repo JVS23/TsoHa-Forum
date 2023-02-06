@@ -20,6 +20,7 @@
         0 41.8px 33.4px rgba(0, 0, 0, 0.086),
         0 10px 40px rgba(0, 0, 0, 0.12)
       ;
+        font-family: monospace;
         min-height: 200px;
         width: 50vw;
         margin: 50px;
@@ -29,6 +30,7 @@
         border-style: solid;
         padding-left: 13px;
         padding-top: 10px;
+        white-space: pre-wrap;
       }
 
       .replybox {
