@@ -7,6 +7,9 @@ A web forum for sharing, rating and discussing ASCII art with others. The forum 
 Currently working only locally, install with poetry using "poetry install", and running it with the command "poetry run flask run" while inside the "app" directory. Note that you need to have a psql server running. Remember to input your own server (and a secret key!) in a .env file to connect your own database. Do also remember to create the tables from the schema.sql file.
 
 
+(Don't worry about the ".. does not contain any element" error after poetry install, it's related to a new feature in poetry that can be circumvented by using command "poetry install --no-root", but the error doesn't affect the installation anyways.)
+
+
 .env file example:
 
 DATABASE_URL="yourinfohere"
@@ -17,7 +20,6 @@ SECRET_KEY=any random string
 
 The forum is currently still a work in progress, with features like creating and viewing threads and using personal accounts working. The forum is only available locally at the moment due to the security flaws being still in place. Most of the main features are working expect the replying, which should be a quick fix when I get back to continue working on the project.
 
-(Don't worry about the ".. does not contain any element" error, it's related to a new feature in poetry that can be circumvented by using command "poetry install --no-root", but the error doesn't affect the installation anyways.)
 
 To do:
 
