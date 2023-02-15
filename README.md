@@ -17,6 +17,8 @@ SECRET_KEY=any random string
 
 The forum is currently still a work in progress, with features like creating and viewing threads and using personal accounts working. The forum is only available locally at the moment due to the security flaws being still in place. Most of the main features are working expect the replying, which should be a quick fix when I get back to continue working on the project.
 
+(Dom't worry about the ".. does not contain any element" error, it's a new feature in poetry that can be circumvented by using command "poetry install --no-root", but the error doesn't effect the installation anyways.)
+
 To do:
 
 - Come up with 2 more tables for the database to fill the criteria
