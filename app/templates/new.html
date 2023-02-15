@@ -4,7 +4,7 @@
 
 {% block content %}
 
-<form action="/send" method="post">
+<form action="/send" method="post" onsubmit="return check(this)">
     Title: <br>
     <textarea name="title" rows="1" cols="20"></textarea>
     <br>
@@ -13,6 +13,19 @@
     <input type="submit" value="Submit">
 </form>
 
+<script>
+    function check(form) {
+        if (form.title.value.length > 100) {
+            alert("The title is too long");
+            return false;
+        }
+        if (form.content.value.length > 10000) {
+            alert("Content of the post is too long");
+            return false;
+        }
+        return true;
+    }
+</script>
 
 <a href="/home">Back to homepage</a>
 

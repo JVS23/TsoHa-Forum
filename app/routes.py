@@ -40,6 +40,11 @@ def send():
     title = request.form["title"]
     content = request.form["content"]
 
+    if len(title) > 100:
+        return render_template("error.html", message="The title is too long")
+    if len(content) > 10000:
+        return render_template("error.html", message="Content of the post is too long")
+
     if threads.send(db, title, content):
         return redirect("/home")
     else:
