@@ -20,12 +20,9 @@
         <h3><a href="/thread/{{ thread.id }}">{{ thread.title }}</a></h3>
         <p>{{ thread.content }}</p>
         <br>
-        <p>Created by <b>{{ thread.username }} </b> on {{ thread.created_at }}</p>
-        <p> #{{thread.id}} | Likes: {{thread.likes}} | Replies: 0 </p>
+        <p>Created by <b>{{ thread.username }} </b> on {{ thread.created_at }}
+ #{{thread.id}} | Likes: {{thread.likes}} | Replies: 0 </p>
     </div>
-
-
-    
 {% endfor %}
 
 <div class="box">
@@ -43,8 +40,8 @@
          )  |  \  `.___________|/
          `--'   `--'</p>
     <br>
-    <p>Created by <b> kiisu </b> on 2023-02-06 10:36:00</p>
-    <p> #0 | Likes: 100 | Replies: 0 </p>
+    <p>Created by <b> kiisu </b> on 2023-02-06 10:36:00
+#0 | Likes: 100 | Replies: 0 </p>
 </div>
 
 {% endblock %}
