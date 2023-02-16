@@ -23,12 +23,12 @@ The forum is currently still a work in progress, with features like creating and
 
 To do:
 
-- Come up with 2 more tables for the database to fill the criteria
-- Add poetry tasks to improve installation & usage
+
+
 - Replying to threads
 - Editing and removing posts
-- Categories(?)
+- New tables, Categories and saved threads
 - Testing
-- CSRF protection
 - Admin account creation
 - Deploy to fly.io & set up continuous deployment
+- Add poetry tasks to improve installation & usage
