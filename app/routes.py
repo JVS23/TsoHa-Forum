@@ -84,6 +84,12 @@ def create():
     username = request.form["username"]
     password = request.form["password"]
     hash_value = generate_password_hash(password)
+
+    if len(username) > 20 or len(username) < 2:
+        return render_template("error.html", message="Username length must be between 2-20 characters")
+    if len(password) > 51 or len(password) < 2:
+        return render_template("error.html", message="Password length needs to be within 2-50 characters")
+
     try:
         sql = text("INSERT INTO users (username, password) VALUES (:username, :password)")
         db.session.execute(sql, {"username":username, "password":hash_value})
@@ -103,4 +109,4 @@ def new():
 @app.route("/error")
 def error():
     return render_template("error.html")
-
+    

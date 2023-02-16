@@ -23,18 +23,34 @@
 <input type="submit" value="Login">
 </form>
 
+
+
 <br>
 
 <h3> Want to create an account? Submit info below:</h3>
 
 
-<form action="/create" method="POST">
+<form action="/create" method="POST" onsubmit="return check(this)">
 <p>Username:<br>
 <input type="text" name="username"></p>
 <p>Password:<br>
 <input type="password" name="password"></p>
 <input type="submit" value="Create">
 </form>
+
+<script>
+    function check(form) {
+        if (form.username.value.length > 20 || form.username.value.length < 2) {
+            alert("Username length must be between 2-20 characters");
+            return false;
+        }
+        if (form.password.value.length > 51 || form.password.value.length < 2) {
+            alert("Password length needs to be within 2-50 characters");
+            return false;
+        }
+        return true;
+    }
+</script>
 
 
 {% endblock %}
