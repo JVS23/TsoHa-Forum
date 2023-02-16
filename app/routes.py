@@ -1,7 +1,7 @@
 from os import getenv
 from flask import Flask
-from flask import redirect, render_template, request, session, flash
-from werkzeug.security import check_password_hash, generate_password_hash
+from flask import redirect, render_template, request, session, flash, abort
+from werkzeug.security import check_password_hash, generate_password_hash, secrets
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import text
 from app import app
@@ -40,6 +40,9 @@ def send():
     title = request.form["title"]
     content = request.form["content"]
 
+    if session["csrf_token"] != request.form["csrf_token"]:
+        abort(403)
+
     if len(title) > 100:
         return render_template("error.html", message="The title is too long")
     if len(content) > 10000:
@@ -68,6 +71,8 @@ def login():
 
     session["username"] = username
     session["user_id"] = user[0]
+    session["csrf_token"] = secrets.token_hex(16)
+
 
     return redirect("/home")
 
@@ -76,6 +81,7 @@ def login():
 def logout():
     del session["username"]
     del session["user_id"]
+    del session["csrf_token"]
     return redirect("/")
 
 
@@ -109,4 +115,3 @@ def new():
 @app.route("/error")
 def error():
     return render_template("error.html")
-    
