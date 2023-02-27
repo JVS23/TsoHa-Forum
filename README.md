@@ -4,6 +4,8 @@ A web forum for sharing, rating and discussing ASCII art with others. The forum 
 
 ## Installation guide
 
+**For peer-reviewers:** If for some reason you cannot use poetry, make an issue saying that you can't use Poetry, and I'll make changes to accomodate ASAP.
+
 Currently working only locally, install with poetry using "poetry install", and running it with the command "poetry run flask run" while inside the "app" directory. Note that you need to have a psql server running. Remember to input your own server (and a secret key!) in a .env file to connect your own database. Do also remember to create the tables from the schema.sql file.
 
 
