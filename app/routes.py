@@ -6,9 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import text
 from app import app
 import threads
-
-app.config["SQLALCHEMY_DATABASE_URI"] = getenv("DATABASE_URL")
-db = SQLAlchemy(app)
+from db import db
 
 
 @app.route("/")
