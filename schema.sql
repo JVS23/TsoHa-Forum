@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS threads (
 );
 
 
-CREATE TABLE IF NOT EXISTS messages (
+CREATE TABLE IF NOT EXISTS replies (
     id SERIAL PRIMARY KEY,
     content TEXT,
     likes INTEGER,
