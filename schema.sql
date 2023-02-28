@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS threads (
     content TEXT,
     likes INTEGER,
     user_id INTEGER REFERENCES users ON DELETE CASCADE,
+    category_id INTEGER REFERENCES categories(id) ON DELETE CASCADE,
     created_at TIMESTAMP
 );
 
@@ -22,5 +23,10 @@ CREATE TABLE IF NOT EXISTS replies (
     user_id INTEGER REFERENCES users ON DELETE CASCADE,
     thread_id INTEGER REFERENCES threads ON DELETE CASCADE,
     sent_at TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS categories (
+    id SERIAL PRIMARY KEY,
+    title TEXT
 );
 
