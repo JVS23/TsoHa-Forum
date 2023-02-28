@@ -15,22 +15,18 @@ Currently working only locally, install with poetry using "poetry install", and 
 .env file example:
 
 DATABASE_URL="postgresql://name:password@localhost"
-
 SECRET_KEY=any random string
 
 ## Current state
 
-The forum is currently still a work in progress, with features like creating and viewing threads and using personal accounts working. The forum is only available locally at the moment due to the security flaws being still in place. Most of the main features are working expect the replying, which should be a quick fix when I get back to continue working on the project.
+The forum is currently still a work in progress, with features like creating and viewing threads and using personal accounts working. The forum is only available locally at the moment due to the security flaws being still in place. Most of the main features are working except the replying, which should be a quick fix when I get back to continue working on the project.
 
 
 To do:
-
-
 
 - Replying to threads
 - Editing and removing posts
 - New tables, Categories and saved threads
 - Testing
 - Admin account creation
-- Deploy to fly.io & set up continuous deployment
-- Add poetry tasks to improve installation & usage
+- Deploy to fly.io
