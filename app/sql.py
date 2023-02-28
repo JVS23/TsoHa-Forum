@@ -19,7 +19,6 @@ def new_thread(title, content, user_id, formatted_date):
     return True
 
 def get_user_logins(username):
-
     sql = text("SELECT id, password FROM users WHERE username=:username")
     result = db.session.execute(sql, {"username":username})
     return result.fetchone()
