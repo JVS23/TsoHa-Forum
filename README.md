@@ -15,6 +15,7 @@ Currently working only locally, install with poetry using "poetry install", and 
 .env file example:
 
 DATABASE_URL="postgresql://name:password@localhost"
+
 SECRET_KEY=any random string
 
 ## Current state
