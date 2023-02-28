@@ -4,9 +4,11 @@ from flask import redirect, render_template, request, session, flash, abort
 from werkzeug.security import check_password_hash, generate_password_hash, secrets
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import text
-from app import app
 import threads
+import sql
 from db import db
+from app import app
+
 
 
 @app.route("/")
@@ -20,16 +22,13 @@ def index():
 
 @app.route("/home")
 def home():
-    result = db.session.execute(text("SELECT threads.id, title, content, likes, created_at, user_id, username FROM threads LEFT JOIN users ON threads.user_id = users.id ORDER BY threads.id DESC"))
-    threads = result.fetchall()
+    threads = sql.get_threads()
     return render_template("home.html", threads=threads)
 
 
 @app.route("/thread/<int:id>")
 def thread(id):
-    sql = text("SELECT * FROM threads WHERE id=:id")
-    result = db.session.execute(sql, {"id":id})
-    thread_info = result.fetchone()
+    thread_info = sql.select_thread(id)
     return render_template("thread.html", thread_info=thread_info)
 
 
@@ -40,17 +39,14 @@ def send():
 
     if session["csrf_token"] != request.form["csrf_token"]:
         abort(403)
-
     if len(title) > 100:
         return render_template("error.html", message="The title is too long")
     if len(content) > 10000:
         return render_template("error.html", message="Content of the post is too long")
-
     if threads.send(db, title, content):
         return redirect("/home")
     else:
         return render_template("error.html", message="Could not create thread")
-
 
 
 @app.route("/login",methods=["POST"])
