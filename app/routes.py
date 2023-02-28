@@ -2,11 +2,8 @@ from os import getenv
 from flask import Flask
 from flask import redirect, render_template, request, session, flash, abort
 from werkzeug.security import check_password_hash, generate_password_hash, secrets
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.sql import text
 import threads
 import sql
-from db import db
 from app import app
 
 
@@ -54,9 +51,7 @@ def login():
     username = request.form["username"]
     password = request.form["password"]
 
-    sql = text("SELECT id, password FROM users WHERE username=:username")
-    result = db.session.execute(sql, {"username":username})
-    user = result.fetchone()
+    user = sql.get_user_logins(username)
     if not user:
         return render_template("error.html", message="No such username or password")
     if not check_password_hash(user[1], password):
@@ -87,11 +82,8 @@ def create():
         return render_template("error.html", message="Username length must be between 2-20 characters")
     if len(password) > 51 or len(password) < 2:
         return render_template("error.html", message="Password length needs to be within 2-50 characters")
-
     try:
-        sql = text("INSERT INTO users (username, password) VALUES (:username, :password)")
-        db.session.execute(sql, {"username":username, "password":hash_value})
-        db.session.commit()
+        sql.create_user(username, hash_value)
     except:
         return render_template("error.html", message="Username already taken")
 

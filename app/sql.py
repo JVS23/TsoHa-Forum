@@ -17,3 +17,15 @@ def new_thread(title, content, user_id, formatted_date):
     db.session.execute(sql, {"title":title, "content":content, "user_id":user_id, "created_at":formatted_date})
     db.session.commit()
     return True
+
+def get_user_logins(username):
+
+    sql = text("SELECT id, password FROM users WHERE username=:username")
+    result = db.session.execute(sql, {"username":username})
+    return result.fetchone()
+
+def create_user(username, hash_value):
+    sql = text("INSERT INTO users (username, password) VALUES (:username, :password)")
+    db.session.execute(sql, {"username":username, "password":hash_value})
+    db.session.commit()
+    return True
