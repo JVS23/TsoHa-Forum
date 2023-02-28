@@ -21,7 +21,7 @@
         <p>{{ thread.content }}</p>
         <br>
         <p>Created by <b>{{ thread.username }} </b> on {{ thread.created_at }}
- #{{thread.id}} | Likes: {{thread.likes}} | Replies: 0 </p>
+ #{{thread.id}} | Replies: 0 | Likes: {{thread.likes}} | <button type="button">Like</button> </p>
     </div>
 {% endfor %}
 
