@@ -43,7 +43,7 @@ def send():
         return render_template("error.html", message="The title is too long")
     if len(content) > 10000:
         return render_template("error.html", message="Content of the post is too long")
-    if threads.send(db, title, content):
+    if threads.send(title, content):
         return redirect("/home")
     else:
         return render_template("error.html", message="Could not create thread")
@@ -62,11 +62,9 @@ def login():
     if not check_password_hash(user[1], password):
         return render_template("error.html", message="No such username or password")
     
-
     session["username"] = username
     session["user_id"] = user[0]
     session["csrf_token"] = secrets.token_hex(16)
-
 
     return redirect("/home")
 
