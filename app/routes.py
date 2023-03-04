@@ -2,7 +2,7 @@ from os import getenv
 from flask import Flask
 from flask import redirect, render_template, request, session, flash, abort
 from werkzeug.security import check_password_hash, generate_password_hash, secrets
-import threads
+import forum
 import sql
 from app import app
 
@@ -41,6 +41,20 @@ def send():
     if len(content) > 10000:
         return render_template("error.html", message="Content of the post is too long")
     if threads.send(title, content):
+        return redirect("/home")
+    else:
+        return render_template("error.html", message="Could not create thread")
+
+@app.route("/send_reply", methods=["POST"])
+def send_reply():
+    content = request.form["content"]
+    thread_id = request.form["thread_id"]
+
+    if session["csrf_token"] != request.form["csrf_token"]:
+        abort(403)
+    if len(content) > 10000:
+        return render_template("error.html", message="Content of the reply is too long")
+    if forum.send_reply(content, thread_id):
         return redirect("/home")
     else:
         return render_template("error.html", message="Could not create thread")
