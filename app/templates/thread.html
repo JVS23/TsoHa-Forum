@@ -9,7 +9,7 @@
     <p>{{ thread_info.content }}</p>
     <br>
     <br>
-    <p>Created by <b>{{ thread_info.user_id }} </b> on {{ thread_info.created_at }}</p>
+    <p>Created by <b>{{ thread_info.username }} </b> on {{ thread_info.created_at }}</p>
 
     <p> #{{thread_info.id}} | Replies: 0 | Likes: {{thread_info.likes}} | <button type="button">Like</button></p>
 </div>
@@ -21,13 +21,12 @@
 <div class="replybox">
     <p>Placeholder reply to the above thread</p>
 </div>
-<div class="replybox">
-    <p>Placeholder reply to the above thread</p>
+
+<div>
+    <p> Add reply</p>
 </div>
-<div class="replybox">
-    <p>Placeholder reply to the above thread</p>
-</div>
-<p>Created by <b>{{ thread_info.user_id }} </b> on {{ thread_info.created_at }}</p>
+
+<p>Created by <b>{{ thread_info.username }} </b> on {{ thread_info.created_at }}</p>
 
 
 

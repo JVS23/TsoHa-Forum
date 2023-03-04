@@ -8,7 +8,8 @@ def get_threads():
     return result.fetchall()
 
 def select_thread(id):
-    sql = text("SELECT * FROM threads WHERE id=:id")
+    sql = text("SELECT threads.id, title, content, user_id, created_at, \
+          likes, username FROM threads LEFT JOIN users ON user_id = users.id WHERE threads.id=:id")
     result = db.session.execute(sql, {"id":id})
     return result.fetchone()
 
