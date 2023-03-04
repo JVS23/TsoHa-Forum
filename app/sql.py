@@ -19,6 +19,12 @@ def new_thread(title, content, user_id, formatted_date):
     db.session.commit()
     return True
 
+def new_reply(content, user_id, thread_id, formatted_date):
+    sql = text("INSERT INTO replies (content, user_id, likes, sent_at, thread_id) VALUES (:content, :user_id, 0, :sent_at, :thread_id)")
+    db.session.execute(sql, {"content":content, "user_id":user_id, "thread_id":thread_id, "sent_at":formatted_date})
+    db.session.commit()
+    return True
+
 def get_user_logins(username):
     sql = text("SELECT id, password FROM users WHERE username=:username")
     result = db.session.execute(sql, {"username":username})
