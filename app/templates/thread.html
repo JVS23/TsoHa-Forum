@@ -14,7 +14,6 @@
     <p> #{{thread_info.id}} | Replies: 0 | Likes: {{thread_info.likes}} | <button type="button">Like</button></p>
 </div>
 
-<p> </p>
 <br>
 <h3>Replies</h3>
 
@@ -22,11 +21,26 @@
     <p>Placeholder reply to the above thread</p>
 </div>
 
-<div>
-    <p> Add reply</p>
-</div>
+<h4>Add reply:</h4>
 
-<p>Created by <b>{{ thread_info.username }} </b> on {{ thread_info.created_at }}</p>
+<form action="/send_reply" method="post" onsubmit="return check(this)">
+    <textarea name="content" rows="3" cols="40"></textarea>
+    <input type="submit" value="Submit">
+    <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+    <input type="hidden" name="thread_id" value="{{ thread_info.id }}">
+</form>
+
+<script>
+    function check(form) {
+        if (form.content.value.length > 10000) {
+            alert("Content of the post is too long");
+            return false;
+        }
+        return true;
+    }
+</script>
+
+<p>Thread created by <b>{{ thread_info.username }} </b> on {{ thread_info.created_at }}</p>
 
 
 
