@@ -1,8 +1,8 @@
 from flask import redirect, render_template, request, session, flash, abort
 from werkzeug.security import check_password_hash, generate_password_hash, secrets
-import forum
-import sql
-from app import app
+import app.forum as forum
+import app.sql as sql
+from app.app import app
 
 
 @app.route("/")

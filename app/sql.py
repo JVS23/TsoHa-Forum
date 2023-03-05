@@ -1,4 +1,4 @@
-from db import db
+from app.db import db
 from sqlalchemy import text
 
 def get_threads():

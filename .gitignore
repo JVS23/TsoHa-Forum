@@ -1,3 +1,6 @@
 __pycache__
 venv/
 .env
+.dockerignore
+Procfile
+fly.toml
