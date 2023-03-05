@@ -38,6 +38,18 @@ def new_reply(content, user_id, thread_id, formatted_date):
     db.session.commit()
     return True
 
+def new_like(user_id, thread_id):
+    sql = text("INSERT INTO likes (liker_id, thread_id) VALUES (:user_id, :thread_id)")
+    db.session.execute(sql, {"user_id":user_id, "thread_id":thread_id})
+    db.session.commit()
+    return True
+
+def update_likes(thread_id):
+    sql = text("UPDATE threads SET likes = likes + 1 WHERE id=:thread_id")
+    db.session.execute(sql, {"thread_id":thread_id})
+    db.session.commit()
+    return True
+
 def get_user_logins(username):
     sql = text("SELECT id, password FROM users WHERE username=:username")
     result = db.session.execute(sql, {"username":username})

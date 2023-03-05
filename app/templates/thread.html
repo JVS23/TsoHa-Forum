@@ -11,8 +11,12 @@
     <br>
     <p>Created by <b>{{ thread_info.username }} </b> on {{ thread_info.created_at }}</p>
 
-    <p> #{{thread_info.id}} | Replies: 0 | Likes: {{thread_info.likes}} | <button type="button">Like</button></p>
+    <p> #{{thread_info.id}} | Likes: {{thread_info.likes}} | <button form="likeform" type=submit>Like</button>
 </div>
+
+<form id="likeform" action="/like" method="post">
+    <input type="hidden" name="thread_id" value="{{ thread_info.id }}">
+</form>
 
 <br>
 <h3>Replies</h3>

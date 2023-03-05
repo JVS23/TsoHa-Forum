@@ -16,7 +16,6 @@ def index():
     except:
         return render_template("index.html") 
 
-
 @app.route("/home")
 def home():
     threads = sql.get_threads()
@@ -75,6 +74,16 @@ def send_reply():
         return redirect("/thread/" + thread_id)
     else:
         return render_template("error.html", message="Could not create reply")
+
+@app.route("/like", methods=["POST"])
+def like():
+    thread_id = request.form["thread_id"]
+    user_id = session.get("user_id")
+    if sql.new_like(user_id, thread_id):
+        sql.update_likes(thread_id)
+        return redirect("/thread/" + thread_id)
+    else:
+        return render_template("error.html", message="Thread already liked")
 
 
 @app.route("/login",methods=["POST"])
