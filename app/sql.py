@@ -22,7 +22,7 @@ def select_thread(id):
 
 def get_replies(id):
     sql = text("SELECT replies.content, sent_at, username \
-          FROM replies LEFT JOIN threads ON thread_id = threads.id LEFT JOIN users ON replies.user_id = users.id WHERE threads.id=:id;")
+          FROM replies LEFT JOIN threads ON thread_id = threads.id LEFT JOIN users ON replies.user_id = users.id WHERE threads.id=:id ORDER BY replies.id ASC;")
     result = db.session.execute(sql, {"id":id})
     return result.fetchall()
 
