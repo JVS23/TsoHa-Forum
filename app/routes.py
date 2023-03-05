@@ -22,6 +22,21 @@ def home():
     threads = sql.get_threads()
     return render_template("home.html", threads=threads)
 
+@app.route("/cats")
+def cats():
+    threads = sql.get_threads_by_category(1)
+    return render_template("cats.html", threads=threads)
+
+@app.route("/dogs")
+def dogs():
+    threads = sql.get_threads_by_category(2)
+    return render_template("dogs.html", threads=threads)
+
+@app.route("/other")
+def other():
+    threads = sql.get_threads_by_category(3)
+    return render_template("other.html", threads=threads)
+
 
 @app.route("/thread/<int:id>")
 def thread(id):
@@ -34,6 +49,7 @@ def thread(id):
 def send():
     title = request.form["title"]
     content = request.form["content"]
+    category = request.form["category"]
 
     if session["csrf_token"] != request.form["csrf_token"]:
         abort(403)
@@ -41,7 +57,7 @@ def send():
         return render_template("error.html", message="The title is too long")
     if len(content) > 10000:
         return render_template("error.html", message="Content of the post is too long")
-    if forum.send(title, content):
+    if forum.send(title, content, category):
         return redirect("/home")
     else:
         return render_template("error.html", message="Could not create thread")

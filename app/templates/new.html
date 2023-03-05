@@ -5,6 +5,13 @@
 {% block content %}
 
 <form action="/send" method="post" onsubmit="return check(this)">
+    Category: 
+    <select id="category" name="category">
+        <option value="1">Cats</option>
+        <option value="2">Dogs</option>
+        <option value="3">Other</option>
+    </select>
+    <br>
     Title: <br>
     <textarea name="title" rows="1" cols="20"></textarea>
     <br>

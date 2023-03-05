@@ -7,6 +7,13 @@ def get_threads():
         FROM threads LEFT JOIN users ON threads.user_id = users.id ORDER BY threads.id DESC"))
     return result.fetchall()
 
+def get_threads_by_category(category_id):
+    sql = text("SELECT threads.id, \
+        title, content, likes, created_at, user_id, username \
+        FROM threads LEFT JOIN users ON threads.user_id = users.id WHERE category_id=:category_id ORDER BY threads.id DESC")
+    result = db.session.execute(sql, {"category_id":category_id})
+    return result.fetchall()
+
 def select_thread(id):
     sql = text("SELECT threads.id, title, content, user_id, created_at, \
           likes, username FROM threads LEFT JOIN users ON user_id = users.id WHERE threads.id=:id")
@@ -19,9 +26,9 @@ def get_replies(id):
     result = db.session.execute(sql, {"id":id})
     return result.fetchall()
 
-def new_thread(title, content, user_id, formatted_date):
-    sql = text("INSERT INTO threads (title, content, likes, user_id, created_at) VALUES (:title, :content, 0, :user_id, :created_at)")
-    db.session.execute(sql, {"title":title, "content":content, "user_id":user_id, "created_at":formatted_date})
+def new_thread(title, content, user_id, category, formatted_date):
+    sql = text("INSERT INTO threads (title, content, likes, user_id, category_id, created_at) VALUES (:title, :content, 0, :user_id, :category_id, :created_at)")
+    db.session.execute(sql, {"title":title, "content":content, "user_id":user_id, "category_id":category, "created_at":formatted_date})
     db.session.commit()
     return True
 
