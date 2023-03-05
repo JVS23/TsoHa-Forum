@@ -5,13 +5,18 @@ CREATE TABLE IF NOT EXISTS users (
     admin BOOLEAN
 );
 
+CREATE TABLE IF NOT EXISTS categories (
+    id SERIAL PRIMARY KEY,
+    category_name TEXT
+);
+
 CREATE TABLE IF NOT EXISTS threads (
     id SERIAL PRIMARY KEY,
     title TEXT,
     content TEXT,
     likes INTEGER,
     user_id INTEGER REFERENCES users ON DELETE CASCADE,
-    category_id INTEGER REFERENCES categories(id) ON DELETE CASCADE,
+    category_id INTEGER REFERENCES categories ON DELETE CASCADE,
     created_at TIMESTAMP
 );
 
@@ -25,8 +30,8 @@ CREATE TABLE IF NOT EXISTS replies (
     sent_at TIMESTAMP
 );
 
-CREATE TABLE IF NOT EXISTS categories (
-    id SERIAL PRIMARY KEY,
-    title TEXT
-);
 
+
+INSERT INTO categories (category_name) VALUES ('cat');
+INSERT INTO categories (category_name) VALUES ('dog');
+INSERT INTO categories (category_name) VALUES ('other');
