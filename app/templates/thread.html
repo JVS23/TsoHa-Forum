@@ -4,6 +4,14 @@
 
 {% block content %}
 
+<div class="container">
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert"></button>
+        {{ message }}
+    </div>
+    {% endfor %}
+    
 <div class="box">
     <h3>{{ thread_info.title }}</a></h3>
     <p>{{ thread_info.content }}</p>

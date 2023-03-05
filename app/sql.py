@@ -40,8 +40,11 @@ def new_reply(content, user_id, thread_id, formatted_date):
 
 def new_like(user_id, thread_id):
     sql = text("INSERT INTO likes (liker_id, thread_id) VALUES (:user_id, :thread_id)")
-    db.session.execute(sql, {"user_id":user_id, "thread_id":thread_id})
-    db.session.commit()
+    try: 
+        db.session.execute(sql, {"user_id":user_id, "thread_id":thread_id})
+        db.session.commit()
+    except:
+        return False
     return True
 
 def update_likes(thread_id):

@@ -81,7 +81,8 @@ def like():
         sql.update_likes(thread_id)
         return redirect("/thread/" + thread_id)
     else:
-        return render_template("error.html", message="Thread already liked")
+        flash("You've already liked this thread!")
+        return redirect("/thread/" + thread_id)
 
 
 @app.route("/login",methods=["POST"])
