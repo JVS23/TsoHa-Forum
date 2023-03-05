@@ -3,14 +3,14 @@ from sqlalchemy import text
 
 def get_threads():
     result = db.session.execute(text("SELECT threads.id, \
-        title, content, likes, created_at, user_id, username \
-        FROM threads LEFT JOIN users ON threads.user_id = users.id ORDER BY threads.id DESC"))
+             title, content, likes, created_at, user_id, username \
+             FROM threads LEFT JOIN users ON threads.user_id = users.id ORDER BY threads.id DESC"))
     return result.fetchall()
 
 def get_threads_by_category(category_id):
     sql = text("SELECT threads.id, \
-        title, content, likes, created_at, user_id, username \
-        FROM threads LEFT JOIN users ON threads.user_id = users.id WHERE category_id=:category_id ORDER BY threads.id DESC")
+          title, content, likes, created_at, user_id, username \
+          FROM threads LEFT JOIN users ON threads.user_id = users.id WHERE category_id=:category_id ORDER BY threads.id DESC")
     result = db.session.execute(sql, {"category_id":category_id})
     return result.fetchall()
 

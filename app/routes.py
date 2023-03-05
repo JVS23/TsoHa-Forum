@@ -5,7 +5,6 @@ import sql
 from app import app
 
 
-
 @app.route("/")
 def index():
     try:
@@ -34,13 +33,11 @@ def other():
     threads = sql.get_threads_by_category(3)
     return render_template("other.html", threads=threads)
 
-
 @app.route("/thread/<int:id>")
 def thread(id):
     thread_info = sql.select_thread(id)
     thread_replies = sql.get_replies(id)
     return render_template("thread.html", thread_info=thread_info, thread_replies=thread_replies)
-
 
 @app.route("/send", methods=["POST"])
 def send():
@@ -84,7 +81,6 @@ def like():
         flash("You've already liked this thread!")
         return redirect("/thread/" + thread_id)
 
-
 @app.route("/login",methods=["POST"])
 def login():
     username = request.form["username"]
@@ -102,14 +98,12 @@ def login():
 
     return redirect("/home")
 
-
 @app.route("/logout")
 def logout():
     del session["username"]
     del session["user_id"]
     del session["csrf_token"]
     return redirect("/")
-
 
 @app.route("/create",methods=["POST"])
 def create():
@@ -129,11 +123,9 @@ def create():
     flash('Your account was successfully created! You can now log in.')
     return redirect("/")
 
-
 @app.route("/new")
 def new():
     return render_template("new.html")
-
 
 @app.route("/error")
 def error():
