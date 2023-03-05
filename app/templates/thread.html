@@ -21,7 +21,10 @@
     <div class="replybox">
         <p>{{ reply.content }}</p>
         <br>
-        <p><b>{{ reply.username }} </b> on {{ reply.sent_at }}
+        <br>
+        <br>
+        <button type="button">Like</button></p>
+        <p><b>{{ reply.username }} </b> on {{ reply.sent_at }} | Likes: {{ reply.likes }}
     </div>
 {% endfor %}
 

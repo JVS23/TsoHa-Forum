@@ -42,7 +42,8 @@
         0 41.8px 33.4px rgba(0, 0, 0, 0.086),
         0 10px 40px rgba(0, 0, 0, 0.12)
       ;
-        min-height: 100px;
+        min-height: 150px;
+        word-wrap: break-word;
         width: 25vw;
         margin: 50px;
         background: rgb(240, 238, 238);
@@ -51,4 +52,5 @@
         border-style: solid;
         padding-left: 13px;
         padding-top: 10px;
+        font-size: 1vw;
       }
