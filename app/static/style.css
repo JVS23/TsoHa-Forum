@@ -44,13 +44,13 @@
       ;
         min-height: 150px;
         word-wrap: break-word;
-        width: 25vw;
+        width: 35vw;
         margin: 50px;
         background: rgb(240, 238, 238);
         border-radius: 15px;
         border-width: 1px;
         border-style: solid;
         padding-left: 13px;
+        padding-right: 13px;
         padding-top: 10px;
-        font-size: 1vw;
       }
