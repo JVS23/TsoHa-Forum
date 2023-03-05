@@ -17,9 +17,13 @@
 <br>
 <h3>Replies</h3>
 
-<div class="replybox">
-    <p>Placeholder reply to the above thread</p>
-</div>
+{% for reply in thread_replies %}
+    <div class="replybox">
+        <p>{{ reply.content }}</p>
+        <br>
+        <p><b>{{ reply.username }} </b> on {{ reply.sent_at }}
+    </div>
+{% endfor %}
 
 <h4>Add reply:</h4>
 

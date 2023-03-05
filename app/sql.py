@@ -13,6 +13,12 @@ def select_thread(id):
     result = db.session.execute(sql, {"id":id})
     return result.fetchone()
 
+def get_replies(id):
+    sql = text("SELECT replies.content, replies.likes, sent_at, username \
+          FROM replies LEFT JOIN threads ON thread_id = threads.id LEFT JOIN users ON replies.user_id = users.id WHERE threads.id=:id;")
+    result = db.session.execute(sql, {"id":id})
+    return result.fetchall()
+
 def new_thread(title, content, user_id, formatted_date):
     sql = text("INSERT INTO threads (title, content, likes, user_id, created_at) VALUES (:title, :content, 0, :user_id, :created_at)")
     db.session.execute(sql, {"title":title, "content":content, "user_id":user_id, "created_at":formatted_date})

@@ -26,7 +26,8 @@ def home():
 @app.route("/thread/<int:id>")
 def thread(id):
     thread_info = sql.select_thread(id)
-    return render_template("thread.html", thread_info=thread_info)
+    thread_replies = sql.get_replies(id)
+    return render_template("thread.html", thread_info=thread_info, thread_replies=thread_replies)
 
 
 @app.route("/send", methods=["POST"])
@@ -40,7 +41,7 @@ def send():
         return render_template("error.html", message="The title is too long")
     if len(content) > 10000:
         return render_template("error.html", message="Content of the post is too long")
-    if threads.send(title, content):
+    if forum.send(title, content):
         return redirect("/home")
     else:
         return render_template("error.html", message="Could not create thread")
@@ -55,9 +56,9 @@ def send_reply():
     if len(content) > 10000:
         return render_template("error.html", message="Content of the reply is too long")
     if forum.send_reply(content, thread_id):
-        return redirect("/home")
+        return redirect("/thread/" + thread_id)
     else:
-        return render_template("error.html", message="Could not create thread")
+        return render_template("error.html", message="Could not create reply")
 
 
 @app.route("/login",methods=["POST"])
