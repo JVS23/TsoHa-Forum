@@ -7,6 +7,7 @@ from app.app import app
 
 @app.route("/")
 def index():
+    sql.wakeup()
     try:
         session["username"]
         return redirect("/home")

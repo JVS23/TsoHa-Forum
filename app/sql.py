@@ -63,3 +63,9 @@ def create_user(username, hash_value):
     db.session.execute(sql, {"username":username, "password":hash_value})
     db.session.commit()
     return True
+
+def wakeup():
+    sql = text("SELECT 1")
+    db.session.execute(sql)
+    db.session.commit()
+    return True
