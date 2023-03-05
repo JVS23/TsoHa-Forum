@@ -20,7 +20,6 @@ CREATE TABLE IF NOT EXISTS threads (
     created_at TIMESTAMP
 );
 
-
 CREATE TABLE IF NOT EXISTS replies (
     id SERIAL PRIMARY KEY,
     content TEXT,
@@ -35,10 +34,8 @@ CREATE TABLE IF NOT EXISTS likes (
     thread_id INTEGER REFERENCES threads(id) ON DELETE CASCADE
 );
 
-
+CREATE UNIQUE INDEX likers ON likes (liker_id, thread_id);
 
 INSERT INTO categories (category_name) VALUES ('cat');
 INSERT INTO categories (category_name) VALUES ('dog');
 INSERT INTO categories (category_name) VALUES ('other');
-
-// DROP TABLE users, categories, threads, replies, likes;
