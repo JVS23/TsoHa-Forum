@@ -1,33 +1,16 @@
 # TsoHa-Forum
 
-A web forum for sharing, rating and discussing ASCII art with others. The forum is created as a project for the course **Aineopintojen harjoitustyö: Tietokantasovellus (periodi III, 2022-2023), Helsingin Yliopisto**. The forum is created using Python, Flask, HTML, CSS and PostgreSQL. The forum is currently only available locally, but will be available online in the future.
+A web forum for sharing, rating and discussing ASCII art with others. The forum is created as a project for the course **Aineopintojen harjoitustyö: Tietokantasovellus (periodi III, 2022-2023), Helsingin Yliopisto**. The forum is created using Python, Flask, HTML, CSS and PostgreSQL. You can access the forum from [here](https://still-lake-4125.fly.dev/). (https://still-lake-4125.fly.dev/) The database might not start up on the first reload thanks to Fly.io, so you might have to refresh the page once to access it.
 
-## Installation guide
+## Usage
 
-**For peer-reviewers:** If for some reason you cannot use poetry, make an issue saying that you can't use Poetry, and I'll make changes to accomodate ASAP.
+You can use the forum by creating you own account on the main page, and then you're free to share your own masterpieces and check out what others have made.
+You can also give likes to the art that others (and yourself, if you feel that way) have made, and reply below their posts with a comment.
 
-Currently working only locally, install with poetry using "poetry install", and running it with the command "poetry run flask run" while inside the "app" directory. Note that you need to have a psql server running. Remember to input your own server (and a secret key!) in a .env file to connect your own database. Do also remember to create the tables from the schema.sql file.
+The forum can also be used by installing it locally. You need to only get the main branch if doing so, since there is a fly.io deployment branch too with different configs which don't work locally. You can find the local installation guide [here](documentation/installation.md).
 
-
-(Don't worry about the ".. does not contain any element" error after poetry install, it's related to a new feature in poetry that can be circumvented by using command "poetry install --no-root", but the error doesn't affect the installation anyways.)
-
-
-.env file example:
-
-DATABASE_URL="postgresql://name:password@localhost"
-
-SECRET_KEY=any random string
 
 ## Current state
 
-The forum is currently still a work in progress, with features like creating and viewing threads and using personal accounts working. The forum is only available locally at the moment due to the security flaws being still in place. Most of the main features are working except the replying, which should be a quick fix when I get back to continue working on the project.
-
-
-To do:
-
-- Replying to threads
-- Editing and removing posts
-- New tables, Categories and saved threads
-- Testing
-- Admin account creation
-- Deploy to fly.io
+The forum is currently working fairly well, and the main thing missing is the deletion of posts, but I'll say that it's a very innovative feature
+to help people come to terms with small mistakes and overcoming them. The admin privileged accounts didn't have enough developement time allocated though, so they are still missing from the final release. Deploying to Fly took longer than expected, but I also learned a lot of useful things when dealing with it. I also managed to have all the vulnerabilities fixed, which was a big priority since I wanted to deploy the app online before the deadline.
