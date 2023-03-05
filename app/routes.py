@@ -1,5 +1,3 @@
-from os import getenv
-from flask import Flask
 from flask import redirect, render_template, request, session, flash, abort
 from werkzeug.security import check_password_hash, generate_password_hash, secrets
 import forum
@@ -14,7 +12,7 @@ def index():
         session["username"]
         return redirect("/home")
     except:
-        return render_template("index.html") 
+        return render_template("index.html")
 
 @app.route("/home")
 def home():
@@ -96,7 +94,7 @@ def login():
         return render_template("error.html", message="No such username or password")
     if not check_password_hash(user[1], password):
         return render_template("error.html", message="No such username or password")
-    
+
     session["username"] = username
     session["user_id"] = user[0]
     session["csrf_token"] = secrets.token_hex(16)
