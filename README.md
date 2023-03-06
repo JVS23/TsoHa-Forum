@@ -1,6 +1,6 @@
 # TsoHa-Forum
 
-A web forum for sharing, rating and discussing ASCII art with others. The forum is created as a project for the course **Aineopintojen harjoitustyö: Tietokantasovellus (periodi III, 2022-2023), Helsingin Yliopisto**. The forum is created using Python, Flask, HTML, CSS and PostgreSQL. The user interface was created using Bootstrap, and some layered CSS on top of it. You can access the forum from [here](https://still-lake-4125.fly.dev/). (https://still-lake-4125.fly.dev/) The database might not start up on the first reload thanks to Fly.io, so you might have to refresh the page once to access it.
+A web forum for sharing, rating and discussing ASCII art with others. The forum is created as a project for the course **Aineopintojen harjoitustyö: Tietokantasovellus (periodi III, 2022-2023), Helsingin Yliopisto**. The forum is created using Python, Flask, HTML, CSS and PostgreSQL. The user interface was created using Bootstrap, and some layered CSS on top of it. You can access the forum from [here](https://still-lake-4125.fly.dev/). (https://still-lake-4125.fly.dev/) **The database might not start up on the first reload thanks to Fly.io, so you might have to refresh the page once to access it.**
 
 ## Usage
 
