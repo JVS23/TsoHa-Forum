@@ -1,6 +1,6 @@
 # TsoHa-Forum
 
-** IMPORTANT: The web application is not live anymore due to the course being over **
+**IMPORTANT: The web application is not live anymore due to the course being over**
 
 A web forum for sharing, rating and discussing ASCII art with others. The forum is created as a project for the course **Aineopintojen harjoitustyö: Tietokantasovellus (periodi III, 2022-2023), Helsingin Yliopisto**. The forum is created using Python, Flask, HTML, CSS and PostgreSQL. The user interface was created using Bootstrap, and some custom CSS on top of it. The web app was hosted on Fly.io, but because the course has ended it is not up anymore.
 
